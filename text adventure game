@@ -1,0 +1,70 @@
+def scene1():   # start first scenel 
+    import time   # import the time for further work with it 
+    print("""Welcome to the new adventure game.   
+   
+   
+NIGHT. 2AM . RAIN. YOU HEAR A KNOCKING ON THE DOOR. WHAT ARE YOU GOING TO DO?   
+     
+        Choose : Stay or Go?    
+    """)   # Starting text of game 
+     
+    c1 = input()   # string for choice 
+    time.sleep(2)   # 2 seconds delay before new text 
+    ans = 'incorrect'   # answer is inncorrect 
+    while(ans=='incorrect'):   # starting loop. While answer is incorrect 
+        if(c1.upper()=="STAY"):   # if choice is stay 
+            print("\nYou had decided to stay in the bedroom before you fell asleep")# will print it if choice is stay   
+            ans = 'correct'   # that answer is correct 
+        elif(c1.upper()=="GO"):   # if choice is go 
+            print("You had gone to main room where was a knocking.")# will print it if choice is go    
+            ans='correct' # that answer is correct    
+            scene2()   # go to second scene 
+        else:   # in other hand 
+            print("CHOOSE ! Stay or Go?")   # print it again 
+            c1 = input()   # string for choice 
+    
+def scene2():   # start second scene 
+    import time   # import the time for further work with it 
+    print("""    
+            When you had gone to main room you found a letter .  
+What are you going to do?    
+Pick or Ignore?     
+            Type your choice: Pick or Ignore?    
+     
+            """)   # print with choosing 
+    time.sleep(2)   # 2 second delay before new text 
+    c1 = input()   # string for choice 
+    ans = 'incorrect'   # answer is inncorrect 
+    while(ans=='incorrect'):   # starting loop. While answer is incorrect 
+        if(c1.upper()=="PICK"): # if choice is pick   
+            print("""\nThe letter says that there is a monster behind the door""") # will print it if choice is pick    
+            time.sleep(2)   # 2 second delay before new text 
+            print("""\nThe letter also says that if you say "rain" the monster will disappear""")# will print it if choice is pick     
+            ans = 'correct'   # if it is correct 
+            pick="True"   # pick will be true 
+        elif(c1.upper()=='IGNORE'):   # if you choosed 'ignore' 
+            print("""\nYou decided not to pick the letter and go open the door""") # will print it if choice is ignore   
+            ans='correct'   # if it answer is correct 
+            pick="False"   # pick will be false 
+        else:   # in other hand 
+            print("Choose! Enter pick or ignore?")  # print choise again  
+            c1=input()  # string for choice  
+    time.sleep(2)   # 2 second delay before new text 
+    scene3(pick)   # scene 3 will be shown if you choose 'pick' 
+    
+def scene3(pick_value):   # start 3th scene 
+    import time   # import the time for further work with it 
+    print("""\n\nWhen you had opened door you saw the monster !  
+It looked scary!""")   # print it for 3th scene 
+    time.sleep(2)   # 2 second delay before new text 
+    if(pick_value=="True"):  # if you choose true pick  
+        time.sleep(2)  # 2 second delay before new text  
+        print("""But you remember that you know the keyword. So you had said " rain" and the monster disappeared   
+              You are won!""")   # will print it if choice is pick 
+        time.sleep(2)   # 2 second delay before new text 
+    elif(pick_value=="False"):   # if pick is false , so you choose 'ignore' 
+        print("The monster killed you!")   # will print it if your choice is ignore 
+    
+scene1()   # start it 
+print("\n\n")   # pass 
+print("END") # end
